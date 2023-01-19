@@ -14,15 +14,13 @@ const MainBlogIntro = ({ blok }) => {
   let date = new Date(blok.date.split(" ")[0]); // Fetching date and excluding time from Storyblok data
   return (
     <div
-      className="flex flex-col justify-center text-center w-full md:w-7/12 m-auto text-md md:text-lg text-gray-600 mt-2"
+      className="flex flex-col justify-center text-center w-full md:w-7/12 m-auto text-md md:text-lg py-14"
       {...storyblokEditable(blok)}
     >
-      <span className="text-sm md:text-base font-light text-gray-500 my-5 font-libre">
+      <span className="text-sm md:text-base font-light my-5 font-libre">
         {dateFormatter.format(date)}
       </span>
-      <div className="w-10/12 m-auto">{render(blok.intro_text)}</div>
-     
-     
+      <div className="w-10/12 m-auto font-libre">{render(blok.intro_text)}</div>
     </div>
   );
 };
