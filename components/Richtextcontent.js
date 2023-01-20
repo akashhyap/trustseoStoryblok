@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const Richtextcontent = ({ blok }) => {
-  console.log(blok);
+  // console.log(blok);
   let bgColor = (val) => {
     switch (blok.backgroundcolor) {
       case "blue":
