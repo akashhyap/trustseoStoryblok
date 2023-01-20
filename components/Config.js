@@ -1,7 +1,7 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 const Config = ({ blok }) => {
-  // console.log("config blok", blok.logo);
+  console.log("config blok", blok);
 
   return (
     <div
@@ -14,7 +14,7 @@ const Config = ({ blok }) => {
             <Link href="/" legacyBehavior>
               <a>
                 <img
-                  src={blok.logo.filename}
+                  src={blok?.logo.filename}
                   alt="TrustSEO"
                   className="w-full h-full object-cover"
                 />
