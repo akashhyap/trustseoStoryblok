@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 const Config = ({ blok }) => {
   // console.log("config blok", blok.logo);
-  // let image = blok.logo.filename;
+
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100"
@@ -13,7 +13,11 @@ const Config = ({ blok }) => {
           <div className="flex justify-start lg:w-0 basis-20">
             <Link href="/" legacyBehavior>
               <a>
-               TrustSEO
+                <img
+                  src={blok.logo.filename}
+                  alt="TrustSEO"
+                  className="w-full h-full object-cover"
+                />
               </a>
             </Link>
           </div>
