@@ -15,7 +15,7 @@ import Layout from "../components/Layout";
 const components = {
   menu_link: MenuLink,
   layout: Layout,
-  config: Config,
+  // config: Config,
   feature: Feature,
   grid: Grid,
   teaser: Teaser,
