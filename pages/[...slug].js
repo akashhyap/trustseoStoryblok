@@ -20,7 +20,9 @@ export default function Page({ story }) {
       {/* <header>
         <h1>{story ? story.name : "My Site"}</h1>
       </header> */}
-      <StoryblokComponent blok={story.content} />
+      <main className="my-14">
+        <StoryblokComponent blok={story.content} />
+      </main>
     </div>
   );
 }

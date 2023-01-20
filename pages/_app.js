@@ -9,16 +9,18 @@ import MenuLink from "../components/MenuLink";
 import Richtextcontent from "../components/Richtextcontent";
 import Image from "../components/Image";
 import Config from "../components/Config";
+import ImageTextSection from "../components/ImageTextSection";
 import Layout from "../components/Layout";
 
 const components = {
   menu_link: MenuLink,
   layout: Layout,
-  config: Config,
+  // config: Config,
   feature: Feature,
   grid: Grid,
   teaser: Teaser,
   image: Image,
+  image_text_section: ImageTextSection,
   main_blog_intro: MainBlogIntro,
   richtextcontent: Richtextcontent,
   page: Page,
