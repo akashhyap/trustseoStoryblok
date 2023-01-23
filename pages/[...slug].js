@@ -29,7 +29,6 @@ export default function Page({ story }) {
 
 export async function getStaticProps({ params }) {
   let slug = params.slug ? params.slug.join("/") : "home";
-
   let sbParams = {
     version: "draft", // or 'published'
     resolve_links: "url",
