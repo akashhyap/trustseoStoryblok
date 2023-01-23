@@ -3,6 +3,8 @@ import { storyblokInit, apiPlugin } from "@storyblok/react";
 import Feature from "../components/Feature";
 import Grid from "../components/Grid";
 import Page from "../components/Page";
+import Articles from "../components/Articles";
+import AllArticles from "../components/AllArticles";
 import Teaser from "../components/Teaser";
 import MainBlogIntro from "../components/MainBlogIntro";
 import MenuLink from "../components/MenuLink";
@@ -24,6 +26,8 @@ const components = {
   main_blog_intro: MainBlogIntro,
   richtextcontent: Richtextcontent,
   page: Page,
+  articles: Articles,
+  "all-articles": AllArticles,
 };
 
 storyblokInit({
