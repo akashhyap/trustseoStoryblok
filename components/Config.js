@@ -1,7 +1,7 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 const Config = ({ blok }) => {
-  console.log("config blok", blok);
+  // console.log("config blok", blok);
 
   return (
     <div
