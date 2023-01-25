@@ -20,7 +20,6 @@ const MegaMenu = ({ blok }) => {
 
   useEffect(() => {
     function handleClickOutside(event) {
-    //   console.log("e", event);
       if (!dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
       }
@@ -36,13 +35,14 @@ const MegaMenu = ({ blok }) => {
   }
 
   return (
-    <li ref={dropdownRef} className="relative px-2 my-2">
+    <li className="relative px-2 my-2">
       <Link
         href={`/${blok?.link?.cached_url}`}
         {...storyblokEditable(blok)}
         legacyBehavior
       >
         <a
+          ref={dropdownRef}
           className="text-base hover:text-gray-900"
           onClick={handleDropdownClick}
         >
@@ -53,7 +53,6 @@ const MegaMenu = ({ blok }) => {
         </a>
       </Link>
       <ul
-       
         className={`dropdowncontent absolute bg-white rounded-b-lg shadow-md px-2 z-10 ${
           dropdownOpen ? "block" : "hidden"
         }`}
