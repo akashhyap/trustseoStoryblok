@@ -1,9 +1,9 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 const Config = ({ blok }) => {
- console.log(blok);
+//  console.log(blok);
  const buttonUrl = blok?.button?.cached_url;
- const buttonLabel = buttonUrl.split('-').join(' ')
+ const buttonLabel = buttonUrl?.split('-').join(' ')
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100"
