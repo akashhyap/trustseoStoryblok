@@ -69,3 +69,23 @@ ul li p {
 .image-text-section ul {
     margin-bottom: 1.25rem;
 }
+
+.megamenu,
+.megamenu ul {
+    list-style-type: none;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.megamenu ul p {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.dropdowncontent {
+    width: max-content;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 250px;
+}

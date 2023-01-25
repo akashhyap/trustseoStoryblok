@@ -7,15 +7,25 @@ import Articles from "../components/Articles";
 import AllArticles from "../components/AllArticles";
 import Teaser from "../components/Teaser";
 import MainBlogIntro from "../components/MainBlogIntro";
-import MenuLink from "../components/MenuLink";
+import MegaMenu from "../components/MegaMenu";
+// import MenuLink from "../components/MenuLink";
+// import SubmenuLink from "../components/SubmenuLink";
 import Richtextcontent from "../components/Richtextcontent";
 import Image from "../components/Image";
-import Config from "../components/Config";
+// import Config from "../components/Config";
 import ImageTextSection from "../components/ImageTextSection";
 import Layout from "../components/Layout";
 
+// import Font Awesome CSS
+import "@fortawesome/fontawesome-svg-core/styles.css"; 
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+// Tell Font Awesome to skip adding the CSS automatically 
+// since it's already imported above
+config.autoAddCss = false; 
+
 const components = {
-  menu_link: MenuLink,
+  MegaMenu: MegaMenu,
   layout: Layout,
   // config: Config,
   feature: Feature,

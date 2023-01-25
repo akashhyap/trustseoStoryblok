@@ -10,7 +10,11 @@ module.exports = {
       libre:
         '"Libre Baskerville", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
     },
-    extend: {},
+    extend: {
+      colors : {
+        'logo-red': '#c32129'
+      }
+    },
   },
   plugins: [],
 };
