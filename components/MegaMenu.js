@@ -54,7 +54,7 @@ const MegaMenu = ({ blok }) => {
           </a>
         </Link>
       ) : (
-        <span ref={dropdownRef} onClick={handleDropdownClick}>
+        <span ref={dropdownRef} onClick={handleDropdownClick} className="cursor-pointer">
           {blok.title} <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
         </span>
       )}
