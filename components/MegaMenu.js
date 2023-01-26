@@ -36,22 +36,29 @@ const MegaMenu = ({ blok }) => {
 
   return (
     <li className="relative px-2 my-2">
-      <Link
-        href={`/${blok?.link?.cached_url}`}
-        {...storyblokEditable(blok)}
-        legacyBehavior
-      >
-        <a
-          ref={dropdownRef}
-          className="text-base hover:text-gray-900"
-          onClick={handleDropdownClick}
+      {!hasSubMenu ? (
+        <Link
+          href={`/${blok?.link?.cached_url}`}
+          {...storyblokEditable(blok)}
+          legacyBehavior
         >
-          {blok.title}
-          {hasSubMenu && (
-            <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
-          )}
-        </a>
-      </Link>
+          <a
+            ref={dropdownRef}
+            className="text-base hover:text-gray-900"
+            onClick={handleDropdownClick}
+          >
+            {blok.title}
+            {/* {hasSubMenu && (
+              <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
+            )} */}
+          </a>
+        </Link>
+      ) : (
+        <span ref={dropdownRef} onClick={handleDropdownClick}>
+          {blok.title} <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
+        </span>
+      )}
+
       <ul
         className={`dropdowncontent absolute bg-white rounded-b-lg shadow-md px-2 z-10 ${
           dropdownOpen ? "block" : "hidden"
