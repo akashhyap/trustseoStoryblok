@@ -35,7 +35,7 @@ const MegaMenu = ({ blok }) => {
   }
 
   return (
-    <li className="relative px-2 my-2">
+    <li role="menuitem" aria-haspopup="true" aria-expanded="false" className="relative px-2 my-2">
       {!hasSubMenu ? (
         <Link
           href={`/${blok?.link?.cached_url}`}
@@ -44,23 +44,25 @@ const MegaMenu = ({ blok }) => {
         >
           <a
             ref={dropdownRef}
-            className="text-base hover:text-gray-900"
+            className="text-white md:text-black md:text-base md:hover:text-gray-900"
             onClick={handleDropdownClick}
           >
             {blok.title}
-            {/* {hasSubMenu && (
-              <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
-            )} */}
           </a>
         </Link>
       ) : (
-        <span ref={dropdownRef} onClick={handleDropdownClick} className="cursor-pointer">
+        <span
+          ref={dropdownRef}
+          onClick={handleDropdownClick}
+          className="cursor-pointer text-white md:text-black"
+        >
           {blok.title} <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
         </span>
       )}
 
       <ul
-        className={`dropdowncontent absolute bg-white rounded-b-lg shadow-md px-2 z-10 ${
+        role="menu"
+        className={`dropdowncontent relative md:absolute md:bg-white md:rounded-b-lg md:shadow-md px-2 z-10 ${
           dropdownOpen ? "block" : "hidden"
         }`}
       >

@@ -75,6 +75,7 @@ ul li p {
     list-style-type: none;
     font-size: 1rem;
     margin-bottom: 0;
+    padding-left: 0;
 }
 
 .megamenu ul p {
@@ -82,10 +83,12 @@ ul li p {
     font-size: 1rem;
 }
 
-.dropdowncontent {
-    width: max-content;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 250px;
+@media screen and (min-width:768px) {
+    .dropdowncontent {
+        width: max-content;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 250px;
+    }
 }
