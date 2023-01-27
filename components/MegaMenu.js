@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const MegaMenu = ({ blok }) => {
-  //   console.log("blok link", blok);
+  // console.log("blok link", blok);
 
   const hasSubMenu = blok.submenu.length != 0;
 
@@ -34,8 +34,14 @@ const MegaMenu = ({ blok }) => {
     setDropdownOpen(!dropdownOpen);
   }
 
+
   return (
-    <li role="menuitem" aria-haspopup="true" aria-expanded="false" className="relative px-2 my-2">
+    <li
+      role="menuitem"
+      aria-haspopup="true"
+      aria-expanded="false"
+      className="targetMenu relative px-2 my-2"
+    >
       {!hasSubMenu ? (
         <Link
           href={`/${blok?.link?.cached_url}`}
@@ -44,7 +50,7 @@ const MegaMenu = ({ blok }) => {
         >
           <a
             ref={dropdownRef}
-            className="text-white md:text-black md:text-base md:hover:text-gray-900"
+            className="text-white md:text-black md:text-base md:hover:text-gray-900 targetmenu"
             onClick={handleDropdownClick}
           >
             {blok.title}
@@ -60,17 +66,19 @@ const MegaMenu = ({ blok }) => {
         </span>
       )}
 
-      <ul
-        role="menu"
-        className={`dropdowncontent relative md:absolute md:bg-white md:rounded-b-lg md:shadow-md px-2 z-10 ${
-          dropdownOpen ? "block" : "hidden"
-        }`}
-      >
-        {/* {render(blok.submenu)} */}
-        {blok?.submenu?.map((nestedBlok) => (
-          <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-        ))}
-      </ul>
+      {hasSubMenu && (
+        <ul
+          role="menu"
+          className={`dropdowncontent relative md:absolute md:bg-white md:rounded-b-lg md:shadow-md px-2 z-10 ${
+            dropdownOpen ? "block" : "hidden"
+          }`}
+        >
+          {/* {render(blok.submenu)} */}
+          {blok?.submenu?.map((nestedBlok) => (
+            <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+          ))}
+        </ul>
+      )}
     </li>
   );
 };

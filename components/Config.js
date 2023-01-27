@@ -1,5 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Link from "next/link";
 // Import the FontAwesomeIcon component
@@ -14,9 +14,26 @@ const Config = ({ blok }) => {
 
   const [shownav, setShowNav] = useState(false);
 
-  const menuHandler = (event) => {
-    setShowNav(!shownav);
+  const menuHandler = () => {
+     setShowNav(!shownav);
   };
+
+  const ulRef = useRef(null);
+
+  useEffect(() => {
+    const lis = ulRef.current.querySelectorAll('a');
+    lis.forEach((li) => {
+      li.addEventListener("click", ()=> {
+        // console.log(shownav);
+        setShowNav(!shownav);
+      });
+    });
+  }, [shownav]);
+
+  // function toggleMenu() {
+  //   const menuDrawer = document.querySelector(".menu-drawer");
+  //   menuDrawer.classList.toggle("is-open");
+  // }
 
   return (
     <div
@@ -25,7 +42,7 @@ const Config = ({ blok }) => {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-2">
-          <div className="flex justify-start lg:w-0 basis-20">
+          <div className="flex justify-start lg:w-0 basis-20 w-[80px]">
             <Link href="/" legacyBehavior>
               <a>
                 <img
@@ -38,17 +55,17 @@ const Config = ({ blok }) => {
           </div>
           <nav
             role="menu"
-            className={`fixed md:relative top-0 left-0 w-full md:w-auto h-full md:h-auto p-5 md:p-0 ease-linear duration-150 will-change-transform md:will-change-auto bg-slate-900 md:bg-transparent translate-x-full md:transform-none ${
+            className={`menu-drawer fixed md:relative top-0 left-0 w-full md:w-auto h-full md:h-auto p-5 md:p-0 ease-linear duration-150 will-change-transform md:will-change-auto bg-slate-900 md:bg-transparent translate-x-full md:transform-none ${
               shownav ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div
-              className="md:hidden flex justify-end"
-              onClick={menuHandler}
-            >
+            <div className="md:hidden flex justify-end" onClick={menuHandler}>
               <FontAwesomeIcon icon={faXmark} className="text-white text-2xl" />
             </div>
-            <ul className="w-full blok md:flex justify-items-end megamenu mb-0">
+            <ul
+              ref={ulRef}
+              className="w-full blok md:flex justify-items-end megamenu mb-0"
+            >
               {blok?.header_menu.map((nestedBlok) => (
                 <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
               ))}
