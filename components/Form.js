@@ -15,8 +15,8 @@ const Contact = ({ blok }) => {
         const listId  = response.data.story.content._uid;
 
         console.log('mailcresponsehimpApiKey',  mailchimpApiKey);
-        // console.log('listId',  listId);
-        console.log('response',  response.data.story.content);
+        console.log('listId',  listId);
+        console.log('response items',  response.data.story.content);
        
         setFormData({ listId, mailchimpApiKey });
       })
