@@ -1,8 +1,9 @@
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import cors from "../pages/api/cors";
 
-const Contact = ({ blok }) => {
+const Form = ({ blok }) => {
   const [formData, setFormData] = useState({});
 
 //   console.log('blok', blok);
@@ -83,4 +84,4 @@ const Contact = ({ blok }) => {
 
 };
 
-export default Contact;
+export default cors(Form);
