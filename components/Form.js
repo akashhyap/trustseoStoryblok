@@ -40,7 +40,7 @@ const Contact = ({ blok }) => {
         }
       };
       const res = await axios.post(
-        `https://trustseo-storyblok.vercel.app/api/subscribe`,
+        `https://trustseo-storyblok.vercel.app/api/`,
         {
           subscriber,
           listId: formData.listId,
