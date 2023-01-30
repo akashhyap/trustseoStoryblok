@@ -6,6 +6,5 @@ module.exports = async (req, res) => {
       'Authorization': `auth ${process.env.MAILCHIMP_API_KEY}`
     }
   });
-  console.log('MAILCHIMP_API_KEY:', process.env.MAILCHIMP_API_KEY);
-  res.json(data);
+ res.json(data);
 };
