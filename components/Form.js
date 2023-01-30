@@ -14,7 +14,7 @@ const Contact = ({ blok }) => {
         const mailchimpApiKey  = process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY;
         const listId  = response.data.story.content._uid;
 
-        console.log('mailcresponsehimpApiKey',  mailchimpApiKey);
+        // console.log('mailcresponsehimpApiKey',  mailchimpApiKey);
         console.log('listId',  listId);
         console.log('response items',  response.data.story.content);
        
