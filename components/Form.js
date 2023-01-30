@@ -25,7 +25,7 @@ const Contact = ({ blok }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log('test', formData);
+    // console.log('test', formData);
     const { email, name, phone, message } = e.target.elements;
     try {
       const subscriber = {
