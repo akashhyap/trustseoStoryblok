@@ -1,9 +1,9 @@
 import { getStoryblokApi, storyblokEditable } from "@storyblok/react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import cors from "../pages/api/cors";
+// import cors from "../pages/api/cors";
 
-const Form = ({ blok }) => {
+const Contact = ({ blok }) => {
   const [formData, setFormData] = useState({});
 
 //   console.log('blok', blok);
@@ -14,8 +14,9 @@ const Form = ({ blok }) => {
         const mailchimpApiKey  = response.data.story.content.mailchimpApiKey;
         const listId  = response.data.story.content._uid;
 
-        console.log('mailchimpApiKey',  mailchimpApiKey);
+        console.log('mailcresponsehimpApiKey',  mailchimpApiKey);
         console.log('listId',  listId);
+        console.log('response',  response);
        
         setFormData({ listId, mailchimpApiKey });
       })
@@ -26,7 +27,7 @@ const Form = ({ blok }) => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    // console.log('test', formData);
+    console.log('test', formData);
     const { email, name, phone, message } = e.target.elements;
     try {
       const subscriber = {
@@ -38,22 +39,16 @@ const Form = ({ blok }) => {
           MESSAGE: message.value
         }
       };
-      await axios.post(
-        `https://us21.api.mailchimp.com/3.0/lists/${formData.listId}/members`,
-        subscriber,
+      const res = await axios.post(
+        `https://trustseo-storyblok.vercel.app/api/subscribe`,
         {
-          auth: {
-            username: 'anystring',
-            password: formData.mailchimpApiKey
-          },
-          headers: {
-            'Access-Control-Allow-Origin': 'https://trustseo-storyblok.vercel.app',
-            'Content-Type': 'application/json'
-          }
+          subscriber,
+          listId: formData.listId,
+          mailchimpApiKey: formData.mailchimpApiKey
         }
       );
-
-      console.log(`Successfully added ${email.value} to the list!`);
+  
+      console.log(res.data);
     } catch (err) {
       console.error(err);
     }
@@ -84,4 +79,4 @@ const Form = ({ blok }) => {
 
 };
 
-export default cors(Form);
+export default Contact;
