@@ -40,7 +40,7 @@ const Contact = ({ blok }) => {
         }
       };
       const res = await axios.post(
-        `https://trustseo-storyblok.vercel.app/api/`,
+        `https://trustseo-storyblok.vercel.app/api/subscribe`,
         {
           subscriber,
           listId: formData.listId,
@@ -59,19 +59,19 @@ const Contact = ({ blok }) => {
     <form onSubmit={handleSubmit} className="flex flex-col w-full md:w-7/12 m-auto text-md md:text-lg">
       <label>
         Name:
-        <input type="text" name="name" required />
+        <input type="text" name="name" />
       </label>
       <label>
         Email:
-        <input type="email" name="email" required />
+        <input type="email" name="email" />
       </label>
       <label>
         Phone:
-        <input type="tel" name="phone" required />
+        <input type="tel" name="phone" />
       </label>
       <label>
         Message:
-        <textarea name="message" required />
+        <textarea name="message" />
       </label>
       <button type="submit">Submit</button>
     </form>
