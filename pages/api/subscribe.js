@@ -7,5 +7,5 @@ module.exports = async (req, res) => {
     }
   });
   console.log(res.json(data));
-  res.json(data);
+  // res.json(data);
 };
