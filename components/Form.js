@@ -11,10 +11,10 @@ const Contact = ({ blok }) => {
     axios
       .get(`https://api.storyblok.com/v1/cdn/stories/253906235?token=a1W9qP01jDYFIPFDJYqd2wtt`)
       .then(response => {
-        const mailchimpApiKey  = response.data.story.content.mailchimpApiKey;
+        const mailchimpApiKey  = process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY;
         const listId  = response.data.story.content._uid;
 
-        // console.log('mailcresponsehimpApiKey',  mailchimpApiKey);
+        console.log('mailcresponsehimpApiKey',  mailchimpApiKey);
         // console.log('listId',  listId);
         console.log('response',  response.data.story.content);
        
