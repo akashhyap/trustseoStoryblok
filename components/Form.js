@@ -8,7 +8,7 @@ const Contact = ({ blok }) => {
 //   console.log('blok', blok);
   useEffect(() => {
     axios
-      .get(`https://api.storyblok.com/v1/cdn/stories/253542719?token=a1W9qP01jDYFIPFDJYqd2wtt`)
+      .get(`https://api.storyblok.com/v1/cdn/stories/253906235?token=a1W9qP01jDYFIPFDJYqd2wtt`)
       .then(response => {
         const mailchimpApiKey  = response.data.story.content.mailchimpApiKey;
         const listId  = response.data.story.content._uid;
