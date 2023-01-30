@@ -44,6 +44,9 @@ const Contact = ({ blok }) => {
           auth: {
             username: 'anystring',
             password: formData.mailchimpApiKey
+          },
+          headers: {
+            'Access-Control-Allow-Origin': 'https://trustseo-storyblok.vercel.app'
           }
         }
       );
