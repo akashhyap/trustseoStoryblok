@@ -71,7 +71,7 @@ const Config = ({ blok }) => {
               ))}
             </ul>
           </nav>
-          {buttonUrl.length != 0 && (
+          {buttonUrl && (
             <div>
               <Link href={`/${buttonUrl}`} legacyBehavior>
                 <a className="capitalize border border-logo-red bg-logo-red hover:bg-transparent text-white hover:text-logo-red transition-colors	 font-poppins text-sm px-5 py-3 rounded-full">
