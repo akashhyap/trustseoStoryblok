@@ -43,7 +43,7 @@ const Contact = ({ blok }) => {
         {
           subscriber,
           listId: formData.listId,
-          mailchimpApiKey: formData.mailchimpApiKey
+          mailchimpApiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY
         }
       );
   
