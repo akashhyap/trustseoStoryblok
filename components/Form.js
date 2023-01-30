@@ -9,7 +9,7 @@ const Contact = ({ blok }) => {
 //   console.log('blok', blok);
   useEffect(() => {
     axios
-      .get(`https://api.storyblok.com/v1/cdn/stories/253906235?token=a1W9qP01jDYFIPFDJYqd2wtt`)
+      .get(`https://api.storyblok.com/v1/cdn/stories/${process.env.NEXT_PUBLIC_STORYID}?token=${process.env.NEXT_PUBLIC_SITETOKKEN}`)
       .then(response => {
         const mailchimpApiKey  = process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY;
         const listId  = response.data.story.content._uid;
