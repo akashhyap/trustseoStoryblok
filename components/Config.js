@@ -8,22 +8,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Config = ({ blok }) => {
-  //  console.log(blok);
   const buttonUrl = blok?.button?.cached_url;
   const buttonLabel = buttonUrl?.split("-").join(" ");
+  // console.log('buttonUrl',buttonUrl.length);
 
   const [shownav, setShowNav] = useState(false);
 
   const menuHandler = () => {
-     setShowNav(!shownav);
+    setShowNav(!shownav);
   };
 
   const ulRef = useRef(null);
 
   useEffect(() => {
-    const lis = ulRef.current.querySelectorAll('a');
+    const lis = ulRef.current.querySelectorAll("a");
     lis.forEach((li) => {
-      li.addEventListener("click", ()=> {
+      li.addEventListener("click", () => {
         // console.log(shownav);
         setShowNav(!shownav);
       });
@@ -71,13 +71,15 @@ const Config = ({ blok }) => {
               ))}
             </ul>
           </nav>
-          <div>
-            <Link href={`/${buttonUrl}`} legacyBehavior>
-              <a className="capitalize border border-logo-red bg-logo-red hover:bg-transparent text-white hover:text-logo-red transition-colors	 font-poppins text-sm px-5 py-3 rounded-full">
-                {buttonLabel}
-              </a>
-            </Link>
-          </div>
+          {buttonUrl.length != 0 && (
+            <div>
+              <Link href={`/${buttonUrl}`} legacyBehavior>
+                <a className="capitalize border border-logo-red bg-logo-red hover:bg-transparent text-white hover:text-logo-red transition-colors	 font-poppins text-sm px-5 py-3 rounded-full">
+                  {buttonLabel}
+                </a>
+              </Link>
+            </div>
+          )}
           {/* Toggle Menu Icon */}
           <span className="md:hidden toggle_icon" onClick={menuHandler}>
             <FontAwesomeIcon icon={faBars} className="text-2xl" />

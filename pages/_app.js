@@ -12,6 +12,7 @@ import MegaMenu from "../components/MegaMenu";
 // import SubmenuLink from "../components/SubmenuLink";
 import Richtextcontent from "../components/Richtextcontent";
 import Image from "../components/Image";
+import Form from "../components/Form";
 // import Config from "../components/Config";
 import ImageTextSection from "../components/ImageTextSection";
 import Layout from "../components/Layout";
@@ -38,6 +39,7 @@ const components = {
   page: Page,
   articles: Articles,
   "all-articles": AllArticles,
+  Form: Form,
 };
 
 storyblokInit({
