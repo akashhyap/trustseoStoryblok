@@ -6,6 +6,9 @@ import axios from "axios";
 const Contact = ({ blok }) => {
   const [formData, setFormData] = useState({});
 
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   //   console.log('blok', blok);
   useEffect(() => {
     axios
@@ -25,6 +28,19 @@ const Contact = ({ blok }) => {
       });
   }, []);
 
+  useEffect(() => {
+    if (successMessage) {
+      setTimeout(() => {
+        setSuccessMessage("");
+      }, 5000);
+    }
+    if (errorMessage) {
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+    }
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, name, phone, message } = e.target.elements;
@@ -43,13 +59,20 @@ const Contact = ({ blok }) => {
         subscriber
       );
       // return res.data;
-      console.log(res.data);
+      // console.log(res.data);
+
+
+      setSuccessMessage(
+        "Thanks for contacting us! We will get back to you soon."
+      );
+      
     } catch (err) {
       if (err.response.status === 400) {
         // The email address already exists in the Mailchimp list
-        alert("Email already exists");
+        // alert("Email already exists");
         // Show the error message on the frontend
-        // e.g. setError("Email already exists");
+
+        setErrorMessage("Email already exists");
       } else {
         console.error(err);
       }
@@ -102,6 +125,16 @@ const Contact = ({ blok }) => {
         >
           Submit
         </button>
+        {successMessage && (
+          <p className="bg-blue-200 mt-4 text-center rounded-md text-base border p-2 border-dashed">
+            {successMessage}
+          </p>
+        )}
+        {errorMessage && (
+          <p className="bg-red-100 text-red-700 mt-4 text-center rounded-md text-base border p-2 border-dashed">
+            {errorMessage}
+          </p>
+        )}
       </form>
     </div>
   );
