@@ -15,10 +15,9 @@ export default function Home({ story }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>{story.content.metatags ? story.content?.metatags?.title : story?.name}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <StoryblokComponent blok={story.content} />
     </div>
   );

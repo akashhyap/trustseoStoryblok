@@ -13,7 +13,11 @@ export default function Page({ story }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{story ? story.name : "My Site"}</title>
+        <title>
+          {story.content.metatags
+            ? story.content?.metatags?.title
+            : story?.name}
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
