@@ -27,7 +27,6 @@ const Contact = ({ blok }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("test", formData);
     const { email, name, phone, message } = e.target.elements;
     try {
       const subscriber = {
@@ -46,34 +45,64 @@ const Contact = ({ blok }) => {
       // return res.data;
       console.log(res.data);
     } catch (err) {
-      console.error(err);
+      if (err.response.status === 400) {
+        // The email address already exists in the Mailchimp list
+        alert("Email already exists");
+        // Show the error message on the frontend
+        // e.g. setError("Email already exists");
+      } else {
+        console.error(err);
+      }
     }
   };
 
   return (
     <div className="md:w-7/12 m-auto mt-8">
       <form
-      onSubmit={handleSubmit}
-      className="flex flex-col w-full md:w-7/12 m-auto text-md md:text-lg bg-white px-4 py-5 sm:p-6 border shadow sm:rounded-md"
-    >
-      <label className="mb-3">
-        Name:
-        <input type="text" name="name" required className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-      </label>
-      <label className="mb-3">
-        Email:
-        <input type="email" name="email" required className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-      </label>
-      <label className="mb-3">
-        Phone:
-        <input type="tel" name="phone" className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"/>
-      </label>
-      <label className="mb-3">
-        Message:
-        <textarea name="message" rows="3" className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-      </label>
-      <button type="submit" className="capitalize border border-logo-red bg-logo-red hover:bg-transparent text-white hover:text-logo-red transition-colors font-poppins text-sm px-5 py-3 mt-2 rounded-md ">Submit</button>
-    </form>
+        onSubmit={handleSubmit}
+        className="flex flex-col w-full md:w-7/12 m-auto text-md md:text-lg bg-white px-4 py-5 sm:p-6 border shadow sm:rounded-md"
+      >
+        <label className="mb-3">
+          Name:
+          <input
+            type="text"
+            name="name"
+            required
+            className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          />
+        </label>
+        <label className="mb-3">
+          Email:
+          <input
+            type="email"
+            name="email"
+            required
+            className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          />
+        </label>
+        <label className="mb-3">
+          Phone:
+          <input
+            type="tel"
+            name="phone"
+            className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          />
+        </label>
+        <label className="mb-3">
+          Message:
+          <textarea
+            name="message"
+            rows="3"
+            className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          />
+        </label>
+        <button
+          type="submit"
+          className="capitalize border border-logo-red bg-logo-red hover:bg-transparent text-white hover:text-logo-red transition-colors font-poppins text-sm px-5 py-3 mt-2 rounded-md "
+        >
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
