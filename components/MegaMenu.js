@@ -9,7 +9,7 @@ const MegaMenu = ({ blok }) => {
 
   const hasSubMenu = blok.submenu.length != 0;
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -28,8 +28,21 @@ const MegaMenu = ({ blok }) => {
     setDropdownOpen(dropdownOpen === blok._uid ? null : blok._uid);
   }
 
+  const liRef = useRef();
+
+  useEffect(() => {
+    const anchor = liRef.current.querySelectorAll("a");
+    anchor.forEach((a) => {
+      a.addEventListener("click", () => {
+        // console.log(shownav);
+        setDropdownOpen(null);
+      });
+    });
+  }, [setDropdownOpen]);
+
   return (
     <li
+      ref={liRef}
       role="menuitem"
       aria-haspopup="true"
       aria-expanded="false"
@@ -46,6 +59,7 @@ const MegaMenu = ({ blok }) => {
           <a
             ref={dropdownRef}
             className="md:hover:text-gray-900 targetmenu px-5 md:px-0"
+            onClick={handleDropdownClick}
           >
             {blok?.icon?.filename && (
               <img

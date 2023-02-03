@@ -51,7 +51,7 @@ const Config = ({ blok }) => {
           </div>
           <nav
             role="menu"
-            className={`menu-drawer fixed md:static top-0 left-0 w-full md:w-auto h-full md:h-auto py-5 md:p-0 ease-linear duration-150 will-change-transform md:will-change-auto bg-white md:bg-transparent translate-x-full md:transform-none ${
+            className={`menu-drawer top-0 left-0 w-full md:w-auto h-full md:h-auto py-5 md:p-0 ease-linear duration-150 will-change-transform md:will-change-auto bg-white md:bg-transparent translate-x-full md:transform-none ${
               shownav ? "translate-x-0" : "translate-x-full"
             }`}
           >
