@@ -30,10 +30,6 @@ const Config = ({ blok }) => {
     });
   }, [shownav]);
 
-  // function toggleMenu() {
-  //   const menuDrawer = document.querySelector(".menu-drawer");
-  //   menuDrawer.classList.toggle("is-open");
-  // }
 
   return (
     <div
@@ -55,13 +51,15 @@ const Config = ({ blok }) => {
           </div>
           <nav
             role="menu"
-            className={`menu-drawer fixed md:relative top-0 left-0 w-full md:w-auto h-full md:h-auto p-5 md:p-0 ease-linear duration-150 will-change-transform md:will-change-auto bg-slate-900 md:bg-transparent translate-x-full md:transform-none ${
+            className={`menu-drawer fixed md:static top-0 left-0 w-full md:w-auto h-full md:h-auto py-5 md:p-0 ease-linear duration-150 will-change-transform md:will-change-auto bg-white md:bg-transparent translate-x-full md:transform-none ${
               shownav ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div className="md:hidden flex justify-end" onClick={menuHandler}>
-              <FontAwesomeIcon icon={faXmark} className="text-white text-2xl" />
+            <div className="md:hidden flex justify-end px-5 pb-5" onClick={menuHandler}>
+              <FontAwesomeIcon icon={faXmark} className="text-2xl" />
             </div>
+
+            {/* Menu */}
             <ul
               ref={ulRef}
               className="w-full blok md:flex justify-items-end megamenu mb-0"

@@ -1,11 +1,7 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
-
-// Import the FontAwesomeIcon component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-// import the icons you need
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const MegaMenu = ({ blok }) => {
@@ -13,34 +9,33 @@ const MegaMenu = ({ blok }) => {
 
   const hasSubMenu = blok.submenu.length != 0;
 
-  //   console.log("hasSubMenu", hasSubMenu);
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
     function handleClickOutside(event) {
       if (!dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
+        setDropdownOpen(null);
       }
     }
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, [dropdownRef]);
+  }, [dropdownRef, setDropdownOpen]);
 
-  function handleDropdownClick() {
-    setDropdownOpen(!dropdownOpen);
+  function handleDropdownClick(event) {
+    setDropdownOpen(dropdownOpen === blok._uid ? null : blok._uid);
   }
-
 
   return (
     <li
       role="menuitem"
       aria-haspopup="true"
       aria-expanded="false"
-      className="targetMenu relative px-2 my-2"
+      className={`targetMenu md:px-2 md:my-2 ${
+        hasSubMenu && blok._uid === dropdownOpen ? "openmenu" : ""
+      }`}
     >
       {!hasSubMenu ? (
         <Link
@@ -50,9 +45,15 @@ const MegaMenu = ({ blok }) => {
         >
           <a
             ref={dropdownRef}
-            className="text-white md:text-black md:text-base md:hover:text-gray-900 targetmenu"
-            onClick={handleDropdownClick}
+            className="md:hover:text-gray-900 targetmenu px-5 md:px-0"
           >
+            {blok?.icon?.filename && (
+              <img
+                src={blok?.icon?.filename}
+                alt="icon"
+                className="w-[18px] h-[18px] mr-2"
+              />
+            )}
             {blok.title}
           </a>
         </Link>
@@ -60,24 +61,31 @@ const MegaMenu = ({ blok }) => {
         <span
           ref={dropdownRef}
           onClick={handleDropdownClick}
-          className="cursor-pointer text-white md:text-black"
+          className="cursor-pointer menuitem"
         >
+          {blok?.icon?.filename && (
+            <img
+              src={blok?.icon?.filename}
+              alt="icon"
+              className="w-[18px] h-[18px] mr-2"
+            />
+          )}
           {blok.title} <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
         </span>
       )}
 
       {hasSubMenu && (
-        <ul
-          role="menu"
-          className={`dropdowncontent relative md:absolute md:bg-white md:rounded-b-lg md:shadow-md px-2 z-10 ${
-            dropdownOpen ? "block" : "hidden"
-          }`}
-        >
-          {/* {render(blok.submenu)} */}
-          {blok?.submenu?.map((nestedBlok) => (
-            <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-          ))}
-        </ul>
+        <div className="dropdowncontent bg-white md:shadow-md">
+          <div
+            className="dropdowncontainer md:flex max-w-7xl mx-auto px-0 md:px-6 md:py-8"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* {render(blok.submenu)} */}
+            {blok?.submenu?.map((nestedBlok) => (
+              <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+            ))}
+          </div>
+        </div>
       )}
     </li>
   );

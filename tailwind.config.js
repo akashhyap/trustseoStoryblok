@@ -7,8 +7,8 @@ module.exports = {
   theme: {
     fontFamily: {
       poppins: '"Poppins", sans-serif',
-      libre:
-        '"Libre Baskerville", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+      questrial:
+        '"Questrial", sans-serif',
     },
     extend: {
       colors : {

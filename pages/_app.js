@@ -8,6 +8,8 @@ import AllArticles from "../components/AllArticles";
 import Teaser from "../components/Teaser";
 import MainBlogIntro from "../components/MainBlogIntro";
 import MegaMenu from "../components/MegaMenu";
+import Submenu from "../components/Submenu";
+import Submenucontent from "../components/Submenucontent";
 // import MenuLink from "../components/MenuLink";
 // import SubmenuLink from "../components/SubmenuLink";
 import Richtextcontent from "../components/Richtextcontent";
@@ -27,6 +29,8 @@ config.autoAddCss = false;
 
 const components = {
   MegaMenu: MegaMenu,
+  Submenu: Submenu,
+  submenucontent: Submenucontent,
   layout: Layout,
   // config: Config,
   feature: Feature,
