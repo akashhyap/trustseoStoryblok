@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://p.typekit.net/p.css?s=1&k=lue6wew&ht=tk&f=25163&a=14350217&app=typekit&e=css");
+
+@font-face {
+    font-family: "fatfrank";
+    src: url("https://use.typekit.net/af/2aa411/00000000000000007735a612/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/2aa411/00000000000000007735a612/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/2aa411/00000000000000007735a612/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+}
+
+:root {
+    --font-heading-scale: 0.9090909090909091;
+    --primary-bg-color: #f0f2f3;
+    --primary-text-color: #676767;
+    --danger-color: #ad0505;
+    --success-color: #4CAF50;
+}
+
 html,
 body {
     overflow-x: hidden;
@@ -147,7 +166,7 @@ ul li p>b {
     height: auto;
     margin: 0;
     padding: 0;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
 }
 
 @media screen and (min-width:768px) {
@@ -167,7 +186,7 @@ ul li p>b {
     .opensubmenu .submenucontent {
         opacity: 1;
         height: auto;
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -190,17 +209,21 @@ nav li {
     nav li {
         font-size: 1.2rem;
     }
+
     .submenucontent {
         background-color: #fff;
     }
+
     .submenucontent li {
         /* font-size: 1rem; */
         padding-left: 40px;
     }
+
     .dropdowncontent {
         border-top: none;
         background: #eeeeee;
     }
+
     .megamenu {
         border-bottom: 1px solid #d9d9d9;
     }
@@ -208,15 +231,17 @@ nav li {
 
 .menuitem {
     display: flex;
-    padding:10px 20px;
+    padding: 10px 20px;
     border-top: 1px solid #d9d9d9;
     line-height: 2.35rem;
     align-items: center;
     justify-content: space-between;
 }
+
 .ddcaret {
     font-size: 18px;
 }
+
 @media screen and (min-width:768px) {
     .menuitem {
         display: inherit;
@@ -224,82 +249,145 @@ nav li {
         border: none;
         line-height: 2rem;
     }
+
     div.menuitem {
         display: block;
     }
+
     .ddcaret {
-        display: none!important;
+        display: none !important;
+    }
+
+    .ddcaret.desktop {
+        display: inline-block !important;
     }
 }
 
-/* 
-.dropdowncontainer .dropdowncontent {
-    position: relative;
-    box-shadow: none;
-    top: auto;
-    border-top: none;
-    padding-top: 10px;
+.scrollmenu {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    overflow: visible;
 }
 
-@media screen and (min-width:768px) {
-    .dropdowncontainer li {
-        flex: 0 0 16.66667%;
-        max-width: 16.66667%;
+@-webkit-keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
     }
 
-    .dropdowncontainer .dropdowncontent .dropdowncontainer li {
-        flex: 100%;
-        max-width: 100%;
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 }
 
-.dropdowncontainer li span {
-    cursor: default;
-    text-transform: capitalize;
-    font-size: 1.1rem;
-}
-
-.dropdowncontainer li svg {
-    display: none;
-}
-
-.dropdowncontainer .dropdowncontent .dropdowncontainer {
-    padding: 0;
-}
-
-.dropdowncontainer .dropdowncontent .dropdowncontainer li {
-    padding-left: 0;
-    font-size: 14px;
-}
-
-.dropdowncontainer .dropdowncontent .dropdowncontainer li a{
-    display: flex;
-}
-
-.dropdowncontainer ul {
-    display: flex;
-}
-@media screen and (max-width:767px){
-    .dropdowncontainer ul {
-        display: block;
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
     }
-    .openmenu .dropdowncontent .dropdowncontainer  .dropdowncontent{
-       opacity: 0;
-       height: 0;
-       padding: 0;
+
+    50% {
+        background-position: 100% 50%;
     }
-    .openmenu .dropdowncontent .dropdowncontainer .openmenu  .dropdowncontent{
-        opacity: 0;
-        height: 0;
-        padding: 0;
-     }
-}
-.dropdowncontainer ul .dropdowncontainer ul {
-    display: block;
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-@media screen and (max-width:767px){
-    nav li{
-        font-size: 18px;
+.herosection {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+}
+
+.splash {
+    margin-bottom: 0;
+}
+
+h1 *,
+h2 * {
+    font-family: "fatfrank";
+    font-size: 100%;
+    /* font-weight: 700; */
+}
+
+h1.splash,
+h2.splash-h2 {
+
+    color: #FFFFFF;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+@media screen and (min-width:1300px) {
+
+    h1.splash,
+    h2.splash-h2 {
+        line-height: 1.08;
     }
-} */
+}
+
+h1 .your,
+h1 .local {
+    font-size: calc(var(--font-heading-scale) * 3rem);
+}
+
+h1 .local {
+    text-decoration-line: underline;
+    text-decoration-color: #fcd832;
+}
+
+h1 .las-vegas {
+    font-size: calc(var(--font-heading-scale) * 3.4rem);
+}
+
+h1 .seo-experts {
+    font-size: calc(var(--font-heading-scale) * 2.75rem);
+    text-decoration-line: underline;
+    text-decoration-color: #fcd832;
+}
+
+h2 .we-help-you {
+    font-size: calc(var(--font-heading-scale) * 2.65rem);
+}
+
+h2 .rank-no-1 {
+    font-size: calc(var(--font-heading-scale) * 3.2rem);
+}
+
+
+@media screen and (min-width:1366px) {
+
+    h1 .your,
+    h1 .local {
+        font-size: calc(var(--font-heading-scale) * 4rem);
+    }
+
+    h1 .local {
+        text-decoration-line: underline;
+        text-decoration-color: #fcd832;
+    }
+
+    h1 .las-vegas {
+        font-size: calc(var(--font-heading-scale) * 4.6rem);
+    }
+
+    h1 .seo-experts {
+        font-size: calc(var(--font-heading-scale) * 3.74rem);
+    }
+
+    h2 .we-help-you {
+        font-size: calc(var(--font-heading-scale) * 3.55rem);
+    }
+
+    h2 .rank-no-1 {
+        font-size: calc(var(--font-heading-scale) * 4.3rem);
+    }
+}

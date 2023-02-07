@@ -1,11 +1,10 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { useState, useEffect, useRef } from "react";
-
 import Link from "next/link";
-// Import the FontAwesomeIcon component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import the icons you need
 import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
+
+import { useScrollPosition } from "./Hooks";
 
 const Config = ({ blok }) => {
   const buttonUrl = blok?.button?.cached_url;
@@ -30,10 +29,13 @@ const Config = ({ blok }) => {
     });
   }, [shownav]);
 
+  const scrollPosition = useScrollPosition();
 
   return (
     <div
-      className="relative bg-white border-b-2 border-gray-100"
+      className={`relative bg-white border-b-2 border-gray-100 transition ease-in-out duration-150 ${
+        scrollPosition > 0 ? "scrollmenu" : ""
+      }`}
       {...storyblokEditable(blok)}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -55,7 +57,10 @@ const Config = ({ blok }) => {
               shownav ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div className="md:hidden flex justify-end px-5 pb-5" onClick={menuHandler}>
+            <div
+              className="md:hidden flex justify-end px-5 pb-5"
+              onClick={menuHandler}
+            >
               <FontAwesomeIcon icon={faXmark} className="text-2xl" />
             </div>
 

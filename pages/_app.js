@@ -17,6 +17,7 @@ import Image from "../components/Image";
 import Form from "../components/Form";
 // import Config from "../components/Config";
 import ImageTextSection from "../components/ImageTextSection";
+import Herosection from "../components/Herosection";
 import Layout from "../components/Layout";
 
 // import Font Awesome CSS
@@ -38,6 +39,7 @@ const components = {
   teaser: Teaser,
   image: Image,
   image_text_section: ImageTextSection,
+  herosection: Herosection,
   main_blog_intro: MainBlogIntro,
   richtextcontent: Richtextcontent,
   page: Page,
