@@ -133,7 +133,7 @@ ul li p>b {
     left: 0;
     top: 100%;
     opacity: 0;
-    transition: opacity .01s linear;
+    transition: all .01s linear;
     background-color: #fff;
     display: block;
     width: 100%;
@@ -207,11 +207,13 @@ nav li {
 }
 
 .menuitem {
-    display: block;
+    display: flex;
     padding-left: 20px;
     padding-right: 20px;
     border-top: 1px solid #d9d9d9;
     line-height: 2.35rem;
+    align-items: center;
+    justify-content: space-between;
 }
 
 @media screen and (min-width:768px) {
@@ -220,16 +222,17 @@ nav li {
         padding-left: 8px;
         padding-right: 8px;
         border: none;
-        line-height: inherit;
+        line-height: 2rem;
     }
     div.menuitem {
         display: block;
     }
+    .submenucaret {
+        display: none!important;
+    }
 }
 
 /* 
-
-
 .dropdowncontainer .dropdowncontent {
     position: relative;
     box-shadow: none;

@@ -3,13 +3,13 @@ import Link from "next/link";
 const Submenucontent = ({ blok }) => {
   // console.log("blok link", blok);
   return (
-    <li className="leading-7 menuitem">
+    <li className="menuitem">
       <Link
         href={`/${blok.link.cached_url}`}
         {...storyblokEditable(blok)}
         legacyBehavior
       >
-        <a>
+        <a className="flex items-center">
           {blok?.icon?.filename && (
             <img
               src={blok?.icon?.filename}

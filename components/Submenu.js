@@ -1,6 +1,10 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 import { useState } from "react";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+
 const Submenu = ({ blok }) => {
   // console.log("blok", blok);
 
@@ -24,7 +28,10 @@ const Submenu = ({ blok }) => {
       }`}
       onClick={handleDropdownClick}
     >
-      <p className="menuitem uppercase submenuheading">{blok?.title}</p>
+      <p className="menuitem uppercase submenuheading md:pb-2 font-bold">
+        <span>{blok?.title}</span>
+        <FontAwesomeIcon icon={faCaretDown} className="pl-2 submenucaret" />
+      </p>
       <ul role="menu" className="submenucontent">
         {blok.submenucontent.map((nestedBlok) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
