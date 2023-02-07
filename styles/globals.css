@@ -188,13 +188,13 @@ nav li {
 
 @media screen and (max-width:767px) {
     nav li {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
     .submenucontent {
         background-color: #fff;
     }
     .submenucontent li {
-        font-size: 0.95rem;
+        /* font-size: 1rem; */
         padding-left: 40px;
     }
     .dropdowncontent {
@@ -208,26 +208,26 @@ nav li {
 
 .menuitem {
     display: flex;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding:10px 20px;
     border-top: 1px solid #d9d9d9;
     line-height: 2.35rem;
     align-items: center;
     justify-content: space-between;
 }
-
+.ddcaret {
+    font-size: 18px;
+}
 @media screen and (min-width:768px) {
     .menuitem {
         display: inherit;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding: 0 8px;
         border: none;
         line-height: 2rem;
     }
     div.menuitem {
         display: block;
     }
-    .submenucaret {
+    .ddcaret {
         display: none!important;
     }
 }

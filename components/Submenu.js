@@ -30,7 +30,7 @@ const Submenu = ({ blok }) => {
     >
       <p className="menuitem uppercase submenuheading md:pb-2 font-bold">
         <span>{blok?.title}</span>
-        <FontAwesomeIcon icon={faCaretDown} className="pl-2 submenucaret" />
+        <FontAwesomeIcon icon={faCaretDown} className="pl-2 ddcaret" />
       </p>
       <ul role="menu" className="submenucontent">
         {blok.submenucontent.map((nestedBlok) => (

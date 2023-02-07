@@ -84,7 +84,7 @@ const MegaMenu = ({ blok }) => {
               className="w-[18px] h-[18px] mr-2"
             />
           )}
-          {blok.title} <FontAwesomeIcon icon={faCaretDown} className="pl-2" />
+          {blok.title} <FontAwesomeIcon icon={faCaretDown} className="pl-2 ddcaret" />
         </span>
       )}
 
