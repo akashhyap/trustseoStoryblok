@@ -2,7 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
 
 const FooterMenu = ({ blok }) => {
-  console.log("footer link", blok);
+  // console.log("footer link", blok);
   return (
     <li>
       <Link

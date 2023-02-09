@@ -1,7 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaArrowRight } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FaArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
 const ImageTextSection = ({ blok }) => {
@@ -27,9 +27,9 @@ const ImageTextSection = ({ blok }) => {
             <Link href={`/${blok?.button?.cached_url}`} legacyBehavior>
               <a className="text-[17px] lg:text-[19px] inline-flex items-center text-left bg-transparent transition-all duration-150 hover:bg-slate-800 text-white-700 hover:text-white py-4 px-2 lg:px-4 border border-white-500 hover:border-transparent rounded mb-5">
                 {blok.button_label}
-                <span className="ml-2">
+                {/* <span className="ml-2">
                   <FontAwesomeIcon icon={FaArrowRight} className="pl-2" />
-                </span>
+                </span> */}
               </a>
             </Link>
           </div>
