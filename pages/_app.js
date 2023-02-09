@@ -10,11 +10,13 @@ import MainBlogIntro from "../components/MainBlogIntro";
 import MegaMenu from "../components/MegaMenu";
 import Submenu from "../components/Submenu";
 import Submenucontent from "../components/Submenucontent";
+import FooterColumn from "../components/FooterColumn";
 import Richtextcontent from "../components/Richtextcontent";
 import Image from "../components/Image";
 import Form from "../components/Form";
 import ImageTextSection from "../components/ImageTextSection";
 import Herosection from "../components/Herosection";
+import FooterMenu from "../components/FooterMenu";
 import Layout from "../components/Layout";
 
 
@@ -29,6 +31,8 @@ const components = {
   MegaMenu: MegaMenu,
   Submenu: Submenu,
   submenucontent: Submenucontent,
+  footerColumn: FooterColumn,
+  footerMenu: FooterMenu,
   layout: Layout,
   // config: Config,
   feature: Feature,

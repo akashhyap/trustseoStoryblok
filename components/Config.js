@@ -2,8 +2,8 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-const Config = ({ blok }) => {
-  const buttonUrl = blok?.button?.cached_url;
+const Config = ({ logo, header_menu, button }) => {
+  const buttonUrl = button?.cached_url;
   const buttonLabel = buttonUrl?.split("-").join(" ");
   // console.log('buttonUrl',buttonUrl.length);
 
@@ -16,7 +16,7 @@ const Config = ({ blok }) => {
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100 transition ease-in-out duration-150"
-      {...storyblokEditable(blok)}
+      {...storyblokEditable(logo, header_menu, button)}
     >
       <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-3 md:py-0">
         <nav
@@ -28,7 +28,7 @@ const Config = ({ blok }) => {
               <Link href="/" legacyBehavior>
                 <a>
                   <img
-                    src={blok?.logo.filename}
+                    src={logo.filename}
                     alt="TrustSEO"
                     className="h-full object-cover basis-20 w-[80px]"
                   />
@@ -76,7 +76,7 @@ const Config = ({ blok }) => {
                 <div
                   className="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700"
                 >
-                  {blok?.header_menu.map((nestedBlok) => (
+                  {header_menu.map((nestedBlok) => (
                     <StoryblokComponent
                       blok={nestedBlok}
                       key={nestedBlok._uid}

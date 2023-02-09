@@ -12,7 +12,7 @@ const MegaMenu = ({ blok }) => {
   return (
     <>
       {hasSubMenu ? (
-        <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4">
+        <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4 [--auto-close:true | false]">
           <button
             type="button"
             className="flex items-center w-full text-gray-500 hover:text-gray-400 font-medium dark:text-gray-400 dark:hover:text-gray-500"

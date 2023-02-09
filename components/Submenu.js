@@ -4,7 +4,7 @@ const Submenu = ({ blok }) => {
   // console.log("blok", blok);
 
   return (
-    <div className="hs-dropdown relative [--strategy:static] [--adaptive:none]">
+    <div className="hs-dropdown relative [--strategy:static] [--adaptive:none] [--auto-close:true | false]">
       <span className="flex justify-between w-full text-base md:uppercase items-center text-gray-200 py-2 px-3 hover:bg-gray-100 md:hover:bg-transparent focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-700 dark:hover:text-gray-300">
         {blok?.title}
       </span>
