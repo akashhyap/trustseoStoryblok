@@ -27,11 +27,7 @@ const Config = ({ logo, header_menu, button }) => {
             <div className="flex items-center justify-between">
               <Link href="/" legacyBehavior>
                 <a>
-                  <img
-                    src={logo.filename}
-                    alt="TrustSEO"
-                    className="h-full object-cover basis-20 w-[80px]"
-                  />
+                  TrustSEO
                 </a>
               </Link>
               <div className="md:hidden">
