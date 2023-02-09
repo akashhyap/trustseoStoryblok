@@ -8,6 +8,8 @@ import {
 } from "@storyblok/react";
 
 import Layout from "../components/Layout";
+import { useEffect } from "react";
+
 
 export default function Home({ story }) {
   story = useStoryblokState(story, { customParent: "http://localhost:3000/" });
@@ -16,7 +18,6 @@ export default function Home({ story }) {
     <div className={styles.container}>
       <Head>
         <title>{story.content.metatags ? story.content?.metatags?.title : story?.name}</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <StoryblokComponent blok={story.content} />
     </div>

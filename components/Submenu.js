@@ -1,42 +1,18 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import Link from "next/link";
-import { useState } from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 const Submenu = ({ blok }) => {
   // console.log("blok", blok);
 
-  const [dropdownOpen, setDropdownOpen] = useState(null);
-
-  function handleDropdownClick(event) {
-    const siblings = event.currentTarget.parentElement.childNodes;
-    siblings.forEach((sibling) => {
-      if (sibling.classList && sibling.classList.contains("opensubmenu")) {
-        sibling.classList.remove("opensubmenu");
-      }
-    });
-
-    setDropdownOpen(dropdownOpen === blok._uid ? null : blok._uid);
-  }
-
   return (
-    <div
-      className={`md:basis-1/4 ${
-        dropdownOpen === blok._uid ? "opensubmenu" : ""
-      }`}
-      onClick={handleDropdownClick}
-    >
-      <p className="menuitem uppercase submenuheading md:pb-2 font-bold">
-        <span>{blok?.title}</span>
-        <FontAwesomeIcon icon={faCaretDown} className="pl-2 ddcaret" />
-      </p>
-      <ul role="menu" className="submenucontent">
+    <div className="hs-dropdown relative [--strategy:static] [--adaptive:none]">
+      <span className="flex justify-between w-full text-base md:uppercase items-center text-gray-200 py-2 px-3 hover:bg-gray-100 md:hover:bg-transparent focus:ring-2 focus:ring-blue-500 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+        {blok?.title}
+      </span>
+      <div className="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 md:opacity-100 hidden md:block z-10 sm:mt-2 bg-white rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:divide-gray-700 before:absolute before:-right-5 before:top-0 before:h-full before:w-5 top-0 right-full !mx-[10px]">
         {blok.submenucontent.map((nestedBlok) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

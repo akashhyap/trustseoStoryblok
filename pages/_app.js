@@ -10,22 +10,19 @@ import MainBlogIntro from "../components/MainBlogIntro";
 import MegaMenu from "../components/MegaMenu";
 import Submenu from "../components/Submenu";
 import Submenucontent from "../components/Submenucontent";
-// import MenuLink from "../components/MenuLink";
-// import SubmenuLink from "../components/SubmenuLink";
 import Richtextcontent from "../components/Richtextcontent";
 import Image from "../components/Image";
 import Form from "../components/Form";
-// import Config from "../components/Config";
 import ImageTextSection from "../components/ImageTextSection";
 import Herosection from "../components/Herosection";
 import Layout from "../components/Layout";
 
-// import Font Awesome CSS
+
 import "@fortawesome/fontawesome-svg-core/styles.css"; 
 
 import { config } from "@fortawesome/fontawesome-svg-core";
-// Tell Font Awesome to skip adding the CSS automatically 
-// since it's already imported above
+import { useEffect } from "react";
+
 config.autoAddCss = false; 
 
 const components = {
@@ -53,6 +50,7 @@ storyblokInit({
   use: [apiPlugin],
   components,
 });
+
 
 function MyApp({ Component, pageProps }) {
   return (

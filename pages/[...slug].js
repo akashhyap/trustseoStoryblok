@@ -1,11 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Layout from "../components/Layout";
+
 import {
   useStoryblokState,
   getStoryblokApi,
   StoryblokComponent,
 } from "@storyblok/react";
+
 
 export default function Page({ story }) {
   story = useStoryblokState(story);
@@ -18,7 +20,6 @@ export default function Page({ story }) {
             ? story.content?.metatags?.title
             : story?.name}
         </title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* <header>

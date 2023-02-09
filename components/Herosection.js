@@ -7,7 +7,7 @@ import Link from "next/link";
 const ImageTextSection = ({ blok }) => {
   let image = blok.image.filename + "/m/";
   let hasImage = blok.image.filename != "";
-  console.log("html", blok);
+  // console.log("html", blok);
 
   let htmlContent = "";
   blok.text.content.forEach((obj) => {
