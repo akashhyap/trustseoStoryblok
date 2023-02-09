@@ -9,11 +9,7 @@ const Footer = ({ logo, footer, copyright }) => {
       <div className="p-5">
         <Link href="/" legacyBehavior>
           <a>
-            <img
-              src={logo.filename}
-              alt="TrustSEO"
-              className="h-full object-cover basis-20 w-2/4"
-            />
+           TrustSEO
           </a>
         </Link>
       </div>

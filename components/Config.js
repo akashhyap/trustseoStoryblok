@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 
 const Config = ({ logo, header_menu, button }) => {
-  const buttonUrl = button?.cached_url;
-  const buttonLabel = buttonUrl?.split("-").join(" ");
+  // const buttonUrl = button?.cached_url;
+  // const buttonLabel = buttonUrl?.split("-").join(" ");
   // console.log('buttonUrl',buttonUrl.length);
 
   useEffect(() => {

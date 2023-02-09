@@ -7,7 +7,7 @@ const Layout = ({ children, story }) => {
       <>
         <Config button={story?.content.button} header_menu={story?.content.header_menu} logo={story?.content.logo} />
         {children}
-        <Footer logo={story?.content.logo} footer={story?.content.footer} copyright={story?.content.copyright} />
+        <Footer footer={story?.content.footer} copyright={story?.content.copyright} />
       </>
     );
   };
