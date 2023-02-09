@@ -2,9 +2,9 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-const Config = ({ header_menu, button }) => {
-  // const buttonUrl = button?.cached_url;
-  // const buttonLabel = buttonUrl?.split("-").join(" ");
+const Config = ({ blok }) => {
+  const buttonUrl = blok?.button?.cached_url;
+  const buttonLabel = buttonUrl?.split("-").join(" ");
   // console.log('buttonUrl',buttonUrl.length);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const Config = ({ header_menu, button }) => {
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100 transition ease-in-out duration-150"
-      {...storyblokEditable(header_menu, button)}
+      {...storyblokEditable(blok)}
     >
       <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-3 md:py-0">
         <nav
@@ -27,7 +27,11 @@ const Config = ({ header_menu, button }) => {
             <div className="flex items-center justify-between">
               <Link href="/" legacyBehavior>
                 <a>
-                  TrustSEO
+                  <img
+                    src={blok?.logo.filename}
+                    alt="TrustSEO"
+                    className="h-full object-cover basis-20 w-[80px]"
+                  />
                 </a>
               </Link>
               <div className="md:hidden">
@@ -72,7 +76,7 @@ const Config = ({ header_menu, button }) => {
                 <div
                   className="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700"
                 >
-                  {header_menu.map((nestedBlok) => (
+                  {blok?.header_menu.map((nestedBlok) => (
                     <StoryblokComponent
                       blok={nestedBlok}
                       key={nestedBlok._uid}
