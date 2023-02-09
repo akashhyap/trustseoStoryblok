@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
-const Config = ({ logo, header_menu, button }) => {
+const Config = ({ header_menu, button }) => {
   // const buttonUrl = button?.cached_url;
   // const buttonLabel = buttonUrl?.split("-").join(" ");
   // console.log('buttonUrl',buttonUrl.length);
@@ -16,7 +16,7 @@ const Config = ({ logo, header_menu, button }) => {
   return (
     <div
       className="relative bg-white border-b-2 border-gray-100 transition ease-in-out duration-150"
-      {...storyblokEditable(logo, header_menu, button)}
+      {...storyblokEditable(header_menu, button)}
     >
       <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full bg-white text-sm py-3 md:py-0">
         <nav
