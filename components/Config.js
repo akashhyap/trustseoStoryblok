@@ -74,7 +74,7 @@ const Config = ({ blok }) => {
             >
               <div className="overflow-hidden overflow-y-auto max-h-[75vh] scrollbar-y">
                 <div
-                  className="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700"
+                  className="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:gap-x-7 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid dark:divide-gray-700"
                 >
                   {blok?.header_menu.map((nestedBlok) => (
                     <StoryblokComponent
